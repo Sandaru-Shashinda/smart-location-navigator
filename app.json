@@ -16,7 +16,7 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.yourname.trafficpilot",
       "config": {
-        "googleMapsApiKey": "AIzaSyAP1e1e1e62y0FcW4umz_sEtM9hy15bkrk"
+        "googleMapsApiKey": "key"
       },
       "infoPlist": {
         "NSLocationWhenInUseUsageDescription": "TrafficPilot needs your location to show traffic and route you.",
@@ -33,7 +33,7 @@
       "predictiveBackGestureEnabled": false,
       "config": {
         "googleMaps": {
-          "apiKey": "AIzaSyATN8DkcpPr2hacYDQ-fs-dMMBvq2iQXyU"
+          "apiKey": "key"
         }
       },
       "permissions": [
