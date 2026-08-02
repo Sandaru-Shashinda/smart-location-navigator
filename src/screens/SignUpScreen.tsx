@@ -13,6 +13,8 @@ import {
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { supabase } from '../lib/supabase';
 import { RootStackParamList } from '../navigation/RootNavigator';
+import ShieldLogo from '../components/ShieldLogo';
+import { colors, radii, spacing } from '../theme/colors';
 
 type SignUpNavigationProp = NativeStackNavigationProp<RootStackParamList, 'SignUp'>;
 
@@ -86,8 +88,9 @@ export default function SignUpScreen({ navigation }: Props) {
         keyboardShouldPersistTaps="handled"
       >
         <View style={styles.header}>
-          <Text style={styles.logo}>TrafficPilot</Text>
-          <Text style={styles.tagline}>Navigate smarter. Drive safer.</Text>
+          <ShieldLogo size={64} />
+          <Text style={styles.logo}>SAFE TO GO</Text>
+          <Text style={styles.tagline}>Smart Traffic Navigation</Text>
         </View>
 
         <View style={styles.form}>
@@ -102,7 +105,7 @@ export default function SignUpScreen({ navigation }: Props) {
           <TextInput
             style={[styles.input, emailFocused && styles.inputFocused]}
             placeholder="Email"
-            placeholderTextColor="#8FA8C0"
+            placeholderTextColor={colors.textSecondary}
             value={email}
             onChangeText={setEmail}
             autoCapitalize="none"
@@ -115,7 +118,7 @@ export default function SignUpScreen({ navigation }: Props) {
           <TextInput
             style={[styles.input, passwordFocused && styles.inputFocused]}
             placeholder="Password"
-            placeholderTextColor="#8FA8C0"
+            placeholderTextColor={colors.textSecondary}
             value={password}
             onChangeText={setPassword}
             secureTextEntry
@@ -127,7 +130,7 @@ export default function SignUpScreen({ navigation }: Props) {
           <TextInput
             style={[styles.input, confirmFocused && styles.inputFocused]}
             placeholder="Confirm Password"
-            placeholderTextColor="#8FA8C0"
+            placeholderTextColor={colors.textSecondary}
             value={confirmPassword}
             onChangeText={setConfirmPassword}
             secureTextEntry
@@ -143,7 +146,7 @@ export default function SignUpScreen({ navigation }: Props) {
             activeOpacity={0.8}
           >
             {loading ? (
-              <ActivityIndicator color="#0D1B2A" />
+              <ActivityIndicator color={colors.textOnPrimary} />
             ) : (
               <Text style={styles.buttonText}>Create Account</Text>
             )}
@@ -164,72 +167,73 @@ export default function SignUpScreen({ navigation }: Props) {
 const styles = StyleSheet.create({
   flex: {
     flex: 1,
-    backgroundColor: '#0D1B2A',
+    backgroundColor: colors.background,
   },
   container: {
     flexGrow: 1,
     justifyContent: 'center',
-    paddingHorizontal: 24,
+    paddingHorizontal: spacing.xl,
     paddingVertical: 48,
   },
   header: {
     alignItems: 'center',
-    marginBottom: 48,
+    marginBottom: spacing.xxl,
+    gap: 6,
   },
   logo: {
-    fontSize: 34,
+    fontSize: 26,
     fontWeight: '800',
-    color: '#00C6AE',
-    letterSpacing: 1.2,
+    color: colors.primaryDark,
+    letterSpacing: 1,
+    marginTop: 8,
   },
   tagline: {
     fontSize: 14,
-    color: '#8FA8C0',
-    marginTop: 6,
-    letterSpacing: 0.4,
+    color: colors.textSecondary,
+    letterSpacing: 0.3,
   },
   form: {
-    backgroundColor: '#162436',
-    borderRadius: 12,
-    padding: 24,
-    marginBottom: 24,
+    backgroundColor: colors.surfaceMuted,
+    borderRadius: radii.lg,
+    padding: spacing.xl,
+    marginBottom: spacing.xl,
   },
   title: {
     fontSize: 22,
     fontWeight: '700',
-    color: '#FFFFFF',
+    color: colors.textPrimary,
     marginBottom: 20,
   },
   errorBox: {
-    backgroundColor: 'rgba(255, 92, 92, 0.12)',
-    borderRadius: 8,
-    padding: 12,
-    marginBottom: 16,
+    backgroundColor: 'rgba(204, 28, 28, 0.08)',
+    borderRadius: radii.sm,
+    padding: spacing.md,
+    marginBottom: spacing.lg,
     borderWidth: 1,
-    borderColor: '#FF5C5C',
+    borderColor: colors.danger,
   },
   errorText: {
-    color: '#FF5C5C',
+    color: colors.danger,
     fontSize: 14,
     lineHeight: 20,
   },
   input: {
-    backgroundColor: '#1E3448',
+    backgroundColor: colors.surface,
     borderWidth: 1,
-    borderColor: '#2A4A68',
-    borderRadius: 8,
-    paddingHorizontal: 16,
+    borderColor: colors.border,
+    borderRadius: radii.sm,
+    paddingHorizontal: spacing.lg,
     paddingVertical: 14,
-    color: '#FFFFFF',
+    color: colors.textPrimary,
     fontSize: 15,
     marginBottom: 14,
   },
   inputFocused: {
-    borderColor: '#00C6AE',
+    borderColor: colors.primary,
   },
   button: {
-    backgroundColor: '#00C6AE',
-    borderRadius: 8,
+    backgroundColor: colors.primaryDark,
+    borderRadius: radii.sm,
     paddingVertical: 15,
     alignItems: 'center',
     marginTop: 6,
@@ -238,7 +242,7 @@ const styles = StyleSheet.create({
     opacity: 0.6,
   },
   buttonText: {
-    color: '#0D1B2A',
+    color: colors.textOnPrimary,
     fontSize: 16,
     fontWeight: '700',
     letterSpacing: 0.4,
@@ -249,11 +253,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   footerText: {
-    color: '#8FA8C0',
+    color: colors.textSecondary,
     fontSize: 14,
   },
   linkText: {
-    color: '#00C6AE',
+    color: colors.primaryDark,
     fontSize: 14,
     fontWeight: '600',
   },
